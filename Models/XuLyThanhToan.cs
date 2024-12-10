@@ -31,6 +31,13 @@ namespace QL_NhaHang_ADO.Models
             cmd.ExecuteNonQuery();
             con.Close();
 
+            string sql2 = "update KhachHang set DIEMTHANHVIEN = DIEMTHANHVIEN + @TichDiem where MAKH = @MaKH";
+            con.Open();
+            cmd = new SqlCommand(sql2, con);
+            cmd.Parameters.AddWithValue("TichDiem", hd.GiaGiam*0.01);
+            cmd.Parameters.AddWithValue("MaKH", hd.MaKH);
+            cmd.ExecuteNonQuery();
+            con.Close();
             // Thêm chi tiết hóa đơn
             foreach (ChiTietHoaDon cthd in chiTietHoaDonList)
             {

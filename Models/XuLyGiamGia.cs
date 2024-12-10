@@ -53,5 +53,23 @@ namespace QL_NhaHang_ADO.Models
             cmd.ExecuteNonQuery();
             conn.Close();
         }
+
+        public void ThemMaGiamGia(string ma ,DateTime ngayBD,DateTime ngayKT, int soLuong, int soTien)
+        {
+            SqlConnection conn = new SqlConnection(connectionString);
+            // đổi ngày tháng năm thành dạng yyyy-MM-dd
+            ngayBD = new DateTime(ngayBD.Year, ngayBD.Month, ngayBD.Day);
+            ngayKT = new DateTime(ngayKT.Year, ngayKT.Month, ngayKT.Day);
+            conn.Open();
+            string sql = "INSERT INTO GiamGia VALUES(@Ma, @NgayBD, @NgayKT, @SoLuong, @SoTien)";
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.Parameters.AddWithValue("@Ma", ma);
+            cmd.Parameters.AddWithValue("@NgayBD", ngayBD);
+            cmd.Parameters.AddWithValue("@NgayKT", ngayKT);
+            cmd.Parameters.AddWithValue("@SoLuong", soLuong);
+            cmd.Parameters.AddWithValue("@SoTien", soTien);
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
     }
 }

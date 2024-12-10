@@ -184,5 +184,49 @@ VALUES (@MaTaiKhoan, @MaQuyen, @TenDangNhap, @MatKhau, @Email, 0, @EmailConfirma
             con.Close();
             return listProduct;
         }
+
+        public void GuiMailMaGiamGia(string email, string randomString, decimal soTien, DateTime NgayBD, DateTime NgayKT, int DiemThanhVien)
+        {
+            MailMessage mail = new MailMessage();
+            mail.To.Add(email);  // Gửi đến địa chỉ email của người nhận
+            mail.From = new MailAddress("khangtuong040@gmail.com");  // Địa chỉ email gửi đi
+            mail.Subject = "Thông tin mã giảm giá";  // Tiêu đề email
+            mail.IsBodyHtml = true;  // Đảm bảo nội dung là HTML
+
+            // Nội dung email, bao gồm mã giảm giá, số tiền, ngày bắt đầu và kết thúc
+            mail.Body = $@"
+        <h3>Chào bạn,</h3>
+        <p>Chúng tôi vui mừng thông báo về mã giảm giá của bạn:</p>
+        <p><strong>Mã giảm giá: </strong>{randomString}</p>
+        <p><strong>Số tiền giảm: </strong>{soTien}</p>
+        <p><strong>Ngày bắt đầu: </strong>{NgayBD:dd/MM/yyyy}</p>
+        <p><strong>Ngày kết thúc: </strong>{NgayKT:dd/MM/yyyy}</p>
+        <p><strong>Điểm thành viên của bạn: </strong>{DiemThanhVien}</p>
+        <p>Hãy sử dụng mã giảm giá này để được ưu đãi tại cửa hàng của chúng tôi!</p>
+        <p>Chúc bạn mua sắm vui vẻ!</p>
+        <p>Trân trọng,</p>
+        <p>Đội ngũ hỗ trợ khách hàng</p>
+    ";
+
+            // Cấu hình máy chủ SMTP
+            SmtpClient smtp = new SmtpClient();
+            smtp.Host = "smtp.gmail.com";
+            smtp.Port = 587;
+            smtp.UseDefaultCredentials = false;
+            smtp.Credentials = new System.Net.NetworkCredential("chaytue0203@gmail.com", "kctw ltds teaj luvb");
+            smtp.EnableSsl = true;
+
+            try
+            {
+                // Gửi email
+                smtp.Send(mail);
+            }
+            catch (Exception ex)
+            {
+                // Xử lý lỗi nếu gửi email không thành công
+                Console.WriteLine("Lỗi khi gửi email: " + ex.Message);
+            }
+        }
+
     }
 }

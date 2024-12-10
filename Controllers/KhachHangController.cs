@@ -23,7 +23,7 @@ namespace QL_NhaHang_ADO.Controllers
             ViewBag.NgaySinh = Session["NgaySinh"];
             ViewBag.SoDT = Session["SoDT"];
             ViewBag.DiemThanhVien = Session["DiemThanhVien"];
-
+            ViewBag.Cart = Session["Cart"];
             return View();
         }
         public ActionResult NhapThongTinKhachHang()
@@ -153,6 +153,43 @@ VALUES (@MaKH, @MaTaiKhoan, @HOTEN, @NGAYSINH, @SODT, @DIEMTHANHVIEN , @AVATAR)"
             ViewBag.MaHD = ma;
             ViewBag.Tong = chiTiets.Sum(t => t.ThanhTien);
             return View(chiTiets);
+        }
+
+        public ActionResult DoiMaGiamGia()
+        {
+            ViewBag.DiemThanhVien = Session["DiemThanhVien"];
+            ViewBag.MaKH = Session["MaKH"];
+            ViewBag.Mail = Session["Mail"];
+            ViewBag.HoTen = Session["HoTen"];
+            return View();
+        }
+
+
+        [HttpPost]
+        public ActionResult XuLyDoiMa(FormCollection f)
+        {
+            string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+            Random random = new Random();
+            string randomString = new string(Enumerable.Repeat(chars, 10)
+                                        .Select(s => s[random.Next(s.Length)]).ToArray());
+            ViewBag.RandomMaGiamGia = randomString;
+            int soTien = Convert.ToInt32(f["MaGiamGia"]);
+            ViewBag.SoTien = soTien;
+            // lấy ngày hiện tại bỏ giờ phút giây
+            DateTime now = DateTime.Now;
+            DateTime NgayBD = new DateTime(now.Year, now.Month, now.Day);
+            // ngày kết thúc sau 14 ngày
+            DateTime NgayKT = NgayBD.AddDays(14);
+            int sl = 1;
+            new XuLyGiamGia().ThemMaGiamGia(randomString, NgayBD, NgayKT, sl, soTien);
+            new XuLyThongTinKhachHang().TruDiemThanhVien(Session["MaKH"].ToString(), soTien);
+            ViewBag.NgayBD = NgayBD;
+            ViewBag.NgayKT = NgayKT;
+            Session["DiemThanhVien"] = Convert.ToInt32(Session["DiemThanhVien"]) - soTien;
+
+            new KetNoiTaiKhoan().GuiMailMaGiamGia(Session["Mail"].ToString(), randomString, soTien, NgayBD, NgayKT, (int)Session["DiemThanhVien"]);
+
+            return View("DoiMaGiamGia");
         }
     }
 }

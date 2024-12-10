@@ -124,5 +124,17 @@ namespace QL_NhaHang_ADO.Models
             con.Close();
             return listProduct;
         }
+
+        public void TruDiemThanhVien(string ma, int SoTien)
+        {
+            SqlConnection conn = new SqlConnection(connectionString);
+            conn.Open();
+            string sql = "UPDATE KhachHang SET DIEMTHANHVIEN = DIEMTHANHVIEN - @SoTien WHERE MAKH = @Ma";
+            SqlCommand cmd = new SqlCommand(sql, conn);
+            cmd.Parameters.AddWithValue("@Ma", ma);
+            cmd.Parameters.AddWithValue("@SoTien", SoTien);
+            cmd.ExecuteNonQuery();
+            conn.Close();
+        }
     }
 }

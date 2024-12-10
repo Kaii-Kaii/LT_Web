@@ -303,6 +303,7 @@ namespace QL_NhaHang_ADO.Controllers
             XuLyGiamGia xuLyGiamGia = new XuLyGiamGia();
             xuLyGiamGia.GiamSoLuongMaKhiThanhToan(maGiamGia);
             // Thêm hóa đơn vào cơ sở dữ liệu
+            Session["DiemThanhVien"] =  (int)Session["DiemThanhVien"] + hd.GiaGiam * 0.01;
             XuLyThanhToan objHD = new XuLyThanhToan();
             objHD.XuLyHoaDon(chiTietHoaDonList, hd);
 

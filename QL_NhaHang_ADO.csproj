@@ -474,6 +474,7 @@
     <Content Include="Views\Admin_GiamGia\HienThiMaGiamGia.cshtml" />
     <Content Include="Views\KhachHang\lichSuDonHang.cshtml" />
     <Content Include="Views\KhachHang\ShowCTHD.cshtml" />
+    <Content Include="Views\KhachHang\DoiMaGiamGia.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

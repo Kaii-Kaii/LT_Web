@@ -24,7 +24,7 @@ namespace QL_NhaHang_ADO.Controllers
             Session.Abandon();
 
             // Chuyển hướng về trang đăng nhập
-            return RedirectToAction("Welcome", "Account");
+            return RedirectToAction("Welcome", "Account", new {id = -1, cart = 0});
         }
         public ActionResult XacThuc()
         {
@@ -355,18 +355,24 @@ namespace QL_NhaHang_ADO.Controllers
             }
             return View(model);
         }
-         //==========================================================================================================================================
+        //==========================================================================================================================================
         //Trang chủ
-        public ActionResult Welcome()
+        public ActionResult Welcome(int id = 0, int cart = -1)
         {
             var count = TempData["Cart"];
             ViewBag.CartCount = count;
+            if (cart == 0 && id == -1)
+            {
+                ViewBag.CartCount = 0;
+            }
+            id = 0;
             return View();
         }
+
         //==========================================================================================================================================
 
 
 
-       
+
     }
 }
