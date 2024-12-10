@@ -101,7 +101,7 @@ window.location.href = '@Url.Action("NhapThongTinKhachHang", "KhachHang")';
                         {
                             ViewBag.Cart = 0;
                         }
-                        <a href="@Url.Action("Welcome", "Account", new { id = 0, cart = ViewBag.Cart })" class="btn btn-link text-decoration-none mr-3">
+                        <a href="@Url.Action("Welcome", "Account", new { id = -1, cart = ViewBag.Cart })" class="btn btn-link text-decoration-none mr-3">
                             Trở lại
                         </a>
                         <a href="/Account/Logout" class="btn btn-danger">

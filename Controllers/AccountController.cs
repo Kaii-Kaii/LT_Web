@@ -365,7 +365,6 @@ namespace QL_NhaHang_ADO.Controllers
             {
                 ViewBag.CartCount = 0;
             }
-            id = 0;
             return View();
         }
 
