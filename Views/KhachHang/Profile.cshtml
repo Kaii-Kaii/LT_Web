@@ -97,7 +97,7 @@ window.location.href = '@Url.Action("NhapThongTinKhachHang", "KhachHang")';
                         <h6 class="m-0 fw-light">Mã khách hàng: @ViewBag.MaKH</h6>
                     </div>
                     <div class="d-flex justify-content-end align-items-center mt-3">
-                        @if(ViewBag.Cart == null)
+                        @if (ViewBag.Cart == null)
                         {
                             ViewBag.Cart = 0;
                         }
@@ -115,104 +115,104 @@ window.location.href = '@Url.Action("NhapThongTinKhachHang", "KhachHang")';
             </div>
             <!-- Stats BG ends -->
             <!-- Row starts -->
-    <div class="row gx-4">
-        <div class="col-xl-3 col-sm-6 col-12">
-            <div class="card mb-4">
-                <div class="card-body">
-                    <div class="d-flex mb-2">
-                        <div class="icon-box md bg-primary rounded-5 me-3">
-                            <i style="color:white" class="fa-solid fa-cake-candles fa-bounce"></i>
-                        </div>
-                        <div class="d-flex flex-column">
-                            <h2 class="m-0 lh-1">@Convert.ToDateTime(ViewBag.NgaySinh).ToString("dd-MM-yyyy")</h2>
-                            <p class="m-0 opacity-50">Ngày Sinh</p>
-                        </div>
-                    </div>
-                    <div class="m-0">
-                        <div class="progress thin mb-2">
-                            <div class="progress-bar bg-primary" role="progressbar" style="width: 100%" aria-valuenow="75"
-                                 aria-valuemin="0" aria-valuemax="100"></div>
-
-                        </div>
-                        @*<p class="m-0 small fw-light opacity-75">Higher than last week.</p>*@
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-xl-3 col-sm-6 col-12">
-            <div class="card mb-4">
-                <div class="card-body">
-                    <div class="d-flex mb-2">
-                        <div class="icon-box md bg-primary rounded-5 me-3">
-                            <i style="color:white" class="fa-solid fa-phone fa-shake"></i>
-                        </div>
-                        <div class="d-flex flex-column">
-                            <h2 class="m-0 lh-1">@ViewBag.SoDT</h2>
-                            <p class="m-0 opacity-50">Số Điện Thoại</p>
-                        </div>
-                    </div>
-                    <div class="m-0">
-                        <div class="progress thin mb-2">
-                            <div class="progress-bar bg-primary" role="progressbar" style="width: 100%" aria-valuenow="75"
-                                 aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-xl-3 col-sm-6 col-12">
-            <div class="card mb-4">
-                <div class="card-body">
-                    <div class="d-flex mb-2">
-                        <div class="icon-box md bg-primary rounded-5 me-3">
-                            <i style="color:white" class="fa-solid fa-envelope fa-beat"></i>
-                        </div>
-                        <div class="d-flex flex-column">
-                            <h7 style="font-weight:bold" class="m-0 lh-1">@ViewBag.Mail</h7>
-                            <p class="m-0 opacity-50">Email</p>
-                        </div>
-                    </div>
-                    <div class="m-0">
-                        <div class="progress thin mb-2">
-                            <div class="progress-bar bg-primary" role="progressbar" style="width: 100%" aria-valuenow="75"
-                                 aria-valuemin="0" aria-valuemax="100"></div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-xl-3 col-sm-6 col-12">
-            <div class="card mb-4 card-bg">
-                <a href="@Url.Action("DoiMaGiamGia", "KhachHang")">
-                    <div style="background-color: #fe8d25; overflow: hidden; border-radius: 9px" class="card-body text-white">
-                        <div class="d-flex mb-2">
-                            <div class="icon-box md bg-white rounded-5 me-3">
-                                <i style="color: #fe8d25;" class="fa-solid fa-wallet"></i>
+            <div class="row gx-4">
+                <div class="col-xl-3 col-sm-6 col-12">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <div class="d-flex mb-2">
+                                <div class="icon-box md bg-primary rounded-5 me-3">
+                                    <i style="color:white" class="fa-solid fa-cake-candles fa-bounce"></i>
+                                </div>
+                                <div class="d-flex flex-column">
+                                    <h2 class="m-0 lh-1">@Convert.ToDateTime(ViewBag.NgaySinh).ToString("dd-MM-yyyy")</h2>
+                                    <p class="m-0 opacity-50">Ngày Sinh</p>
+                                </div>
                             </div>
-                            <div class="d-flex flex-column">
-                                <h2 class="m-0 lh-1">@ViewBag.DiemThanhVien</h2>
-                                <p class="m-0 opacity-50">Điểm Thành Viên</p>
-                            </div>
-                        </div>
-                        <div class="m-0">
-                            <div class="progress thin mb-2">
-                                <div class="progress-bar bg-white" role="progressbar" style="width: 75%" aria-valuenow="75"
-                                     aria-valuemin="0" aria-valuemax="100"></div>
+                            <div class="m-0">
+                                <div class="progress thin mb-2">
+                                    <div class="progress-bar bg-primary" role="progressbar" style="width: 100%" aria-valuenow="75"
+                                         aria-valuemin="0" aria-valuemax="100"></div>
+
+                                </div>
+                                @*<p class="m-0 small fw-light opacity-75">Higher than last week.</p>*@
                             </div>
                         </div>
                     </div>
-                </a>
-            </div>
-        </div>
+                </div>
+                <div class="col-xl-3 col-sm-6 col-12">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <div class="d-flex mb-2">
+                                <div class="icon-box md bg-primary rounded-5 me-3">
+                                    <i style="color:white" class="fa-solid fa-phone fa-shake"></i>
+                                </div>
+                                <div class="d-flex flex-column">
+                                    <h2 class="m-0 lh-1">@ViewBag.SoDT</h2>
+                                    <p class="m-0 opacity-50">Số Điện Thoại</p>
+                                </div>
+                            </div>
+                            <div class="m-0">
+                                <div class="progress thin mb-2">
+                                    <div class="progress-bar bg-primary" role="progressbar" style="width: 100%" aria-valuenow="75"
+                                         aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
 
-    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-sm-6 col-12">
+                    <div class="card mb-4">
+                        <div class="card-body">
+                            <div class="d-flex mb-2">
+                                <div class="icon-box md bg-primary rounded-5 me-3">
+                                    <i style="color:white" class="fa-solid fa-envelope fa-beat"></i>
+                                </div>
+                                <div class="d-flex flex-column">
+                                    <h7 style="font-weight:bold" class="m-0 lh-1">@ViewBag.Mail</h7>
+                                    <p class="m-0 opacity-50">Email</p>
+                                </div>
+                            </div>
+                            <div class="m-0">
+                                <div class="progress thin mb-2">
+                                    <div class="progress-bar bg-primary" role="progressbar" style="width: 100%" aria-valuenow="75"
+                                         aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-3 col-sm-6 col-12">
+                    <div class="card mb-4 card-bg">
+                        <a href="@Url.Action("DoiMaGiamGia", "KhachHang")">
+                            <div style="background-color: #fe8d25; overflow: hidden; border-radius: 9px" class="card-body text-white">
+                                <div class="d-flex mb-2">
+                                    <div class="icon-box md bg-white rounded-5 me-3">
+                                        <i style="color: #fe8d25;" class="fa-solid fa-wallet"></i>
+                                    </div>
+                                    <div class="d-flex flex-column">
+                                        <h2 class="m-0 lh-1">@ViewBag.DiemThanhVien</h2>
+                                        <p class="m-0 opacity-50">Điểm Thành Viên</p>
+                                    </div>
+                                </div>
+                                <div class="m-0">
+                                    <div class="progress thin mb-2">
+                                        <div class="progress-bar bg-white" role="progressbar" style="width: 75%" aria-valuenow="75"
+                                             aria-valuemin="0" aria-valuemax="100"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
             <!-- Row ends -->
             <!-- Row starts -->
             <div class="row gx-4">
-                
-                
+
+
             </div>
             <!-- Row ends -->
             <!-- Row starts -->
@@ -223,6 +223,8 @@ window.location.href = '@Url.Action("NhapThongTinKhachHang", "KhachHang")';
             <!-- Row ends -->
 
         }
-        @Html.Action("lichSuDonHang", "KhachHang")
+        @if(Session["MaKH"] != null){
+            @Html.Action("lichSuDonHang", "KhachHang")
+        }
 </body>
 </html>

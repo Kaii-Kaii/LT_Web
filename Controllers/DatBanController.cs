@@ -24,7 +24,12 @@ namespace QL_NhaHang_ADO.Controllers
             if (isRegistered)
             {
                 TempData["SignSuccess"] = true;
-                return RedirectToAction("Welcome","Account");
+                var tmp = -1;
+                if (Session["Cart"] == null)
+                {
+                    tmp = 0;
+                }
+                return RedirectToAction("Welcome", "Account", new { id = -1, cart = tmp });
             }
             else
             {

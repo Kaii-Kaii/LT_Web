@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Data.SqlClient;
+using System.Collections;
 
 namespace QL_NhaHang_ADO.Controllers
 {
@@ -24,6 +25,7 @@ namespace QL_NhaHang_ADO.Controllers
             Session.Abandon();
 
             // Chuyển hướng về trang đăng nhập
+            Session["Cart"] = null;
             return RedirectToAction("Welcome", "Account", new {id = -1, cart = 0});
         }
         public ActionResult XacThuc()
@@ -146,7 +148,6 @@ namespace QL_NhaHang_ADO.Controllers
         [HttpPost]
         public ActionResult DangNhap(TaiKhoan model)
         {
-            
             KetNoiTaiKhoan objTK = new KetNoiTaiKhoan();
             List<TaiKhoan> listTK = objTK.DangNhap();
 
