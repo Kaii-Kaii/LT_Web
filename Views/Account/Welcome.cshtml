@@ -267,8 +267,8 @@
             </div>
         </div>
     </section>
-    <div  id="test" style="display:none">@ViewBag.CartCount</div>
-   @Html.Action("DatBan","DatBan")
+    <div id="test" style="display:none">@ViewBag.CartCount</div>
+    @Html.Action("DatBan", "DatBan")
     <!-- End Offer Section -->
     <!-- Start Gallery Section -->
     <section id="gallery" class="gallery-area bg-dark section-padding">
@@ -317,16 +317,15 @@
                     <a class="gallery-single-item popup-img" href="/assets/img/gallery/1.jpg">
                         <img style="width:275px; height:185px; object-fit:cover" src="/assets/img/gallery/1.jpg" alt="image">
                     </a>
+
                 </div>
             </div>
         </div>
     </section>
     <!-- End Gallery Section -->
     <!-- Start Team Section -->
-    
     <!-- End Partner Logo Section -->
     <!-- Start Footer Copyright Section -->
-   
     <!-- End Footer Copyright Section -->
     <!-- Start Go Top Section -->
     <div class="go-top">
@@ -459,19 +458,14 @@
             else
                 var totalItems = 0;
             //console.log(totalItems);
-                // Cập nhật số lượng giỏ hàng trên giao diện
-                document.getElementById("sl").textContent = totalItems;
+            // Cập nhật số lượng giỏ hàng trên giao diện
+            document.getElementById("sl").textContent = totalItems;
         }
 
         // Gọi hàm updateCartCount khi trang được tải hoặc khi sản phẩm được thêm vào
         window.onload = updateCartCount;
 
     </script>
-
-    <script>
-    </script>
-
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 
 

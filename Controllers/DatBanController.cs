@@ -59,6 +59,8 @@ VALUES (@MaPhieu, @MAKH, @NgayDat, @TenKH, @SoLuong, @Email, @SDT, @GIODAT)";
                 int result = cmd.ExecuteNonQuery();
                 conn.Close();
 
+                new XuLyDatBan().GuiMail(PhieuDatBan.Email, PhieuDatBan.TenKH, PhieuDatBan.NgayDat, PhieuDatBan.SDT, PhieuDatBan.SoLuong, PhieuDatBan.GIODAT);
+
                 return result > 0;
             }
         }

@@ -349,7 +349,6 @@ namespace QL_NhaHang_ADO.Controllers
             string prefix = "HD";
             int nextNumber = GetNextNumberFromDatabase(); // Hàm để lấy số tiếp theo từ CSDL
             string maTaiKhoan = prefix + nextNumber.ToString("D4"); // Format thành 'TK0001'
-
             return maTaiKhoan;
         }
     }
