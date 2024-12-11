@@ -7,6 +7,24 @@
 
 
 <h2 class="text-center my-4" style="color: #fa8f23">DANH SÁCH HOÁ ĐƠN</h2>
+@using (Html.BeginForm("ShowHD", "NhaHang", FormMethod.Get))
+{
+    <div class="container mt-4">
+        <div class="row g-3 align-items-center">
+            <div class="col-md-4">
+                <label for="NgayBD" class="form-label">Ngày bắt đầu:</label>
+                <input type="date" id="NgayBD" name="ngayBD" class="form-control" />
+            </div>
+            <div class="col-md-4">
+                <label for="NgayKT" class="form-label">Ngày kết thúc:</label>
+                <input type="date" id="NgayKT" name="ngayKT" class="form-control" />
+            </div>
+            <div class="col-md-4 d-flex align-items-end">
+                <button type="submit" class="btn btn-primary w-100">Lọc</button>
+            </div>
+        </div>
+    </div>
+}
 
 <div class="card shadow-lg mb-4">
     <div class="card-body">

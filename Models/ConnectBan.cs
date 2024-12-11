@@ -44,6 +44,13 @@ namespace QL_NhaHang_ADO.Models
             {
                 conn.Close();
             }
+            // sắp xếp theo mã bàn theo số thứ tự
+            bans.Sort((x, y) =>
+            {
+                int maBanX = int.TryParse(x.MaBan, out int resultX) ? resultX : int.MaxValue;
+                int maBanY = int.TryParse(y.MaBan, out int resultY) ? resultY : int.MaxValue;
+                return maBanX.CompareTo(maBanY);
+            });
 
             return bans;
         }
@@ -82,6 +89,14 @@ namespace QL_NhaHang_ADO.Models
             {
                 conn.Close();
             }
+            // sắp xếp theo mã bàn
+            bans.Sort((x, y) =>
+            {
+                int maBanX = int.TryParse(x.MaBan, out int resultX) ? resultX : int.MaxValue;
+                int maBanY = int.TryParse(y.MaBan, out int resultY) ? resultY : int.MaxValue;
+                return maBanX.CompareTo(maBanY);
+            });
+
             return bans;
         }
         public bool UpdateTrangThai(string maBan, string trangThai)
@@ -143,6 +158,13 @@ namespace QL_NhaHang_ADO.Models
             {
                 conn.Close();
             }
+            //sắp xếp theo mã bàn  
+            bans.Sort((x, y) =>
+            {
+                int maBanX = int.TryParse(x.MaBan, out int resultX) ? resultX : int.MaxValue;
+                int maBanY = int.TryParse(y.MaBan, out int resultY) ? resultY : int.MaxValue;
+                return maBanX.CompareTo(maBanY);
+            });
 
             return bans;
         }

@@ -308,7 +308,7 @@ namespace QL_NhaHang_ADO.Controllers
             objHD.XuLyHoaDon(chiTietHoaDonList, hd);
 
             // xóa giỏ hàng sau khi thanh toán
-            Session["Cart"] = 0;
+            Session["Cart"] = null;
             TempData["Cart"] = 0;
             return RedirectToAction("Welcome", "Account");
         }

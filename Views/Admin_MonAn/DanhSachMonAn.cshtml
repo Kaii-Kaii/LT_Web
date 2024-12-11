@@ -54,6 +54,13 @@
         </div>
     </div>
 </form>
+@using (Html.BeginForm("DanhSachMonAn", "Admin_MonAn", FormMethod.Get))
+{
+    <div class="input-group mt-3">
+        <input type="text" class="form-control" name="TenMonCanTim" placeholder="Nhập tên món ăn để tìm kiếm" value="@Request.QueryString["TimTenMon"]">
+        <button type="submit" class="btn btn-primary">Tìm kiếm</button>
+    </div>
+}
 
 <table class="table mt-4">
     <thead>
@@ -103,7 +110,6 @@
         text-overflow: ellipsis;
         white-space: nowrap;
     }
-
 </style>
 
 <script>

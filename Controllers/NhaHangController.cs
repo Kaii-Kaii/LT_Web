@@ -15,13 +15,28 @@ namespace QL_NhaHang_ADO.Controllers
         // GET: NhaHang
         public SqlConnection conn = new SqlConnection(ConfigurationManager.ConnectionStrings["Connect1"].ConnectionString);
 
-        public ActionResult ShowHD()
+        public ActionResult ShowHD(string ngayBD = null, string ngayKT = null)
         {
             ConnectHoaDon connectHoaDon = new ConnectHoaDon();
             List<HoaDon> hoaDons = connectHoaDon.GetData();
+
+            // Nếu có ngày bắt đầu và ngày kết thúc, thực hiện lọc
+            if (!string.IsNullOrEmpty(ngayBD) && !string.IsNullOrEmpty(ngayKT))
+            {
+                DateTime startDate = DateTime.Parse(ngayBD);
+                DateTime endDate = DateTime.Parse(ngayKT).AddDays(1).AddTicks(-1); // Chuyển ngày kết thúc thành cuối ngày
+
+                hoaDons = hoaDons
+                            .Where(hd => hd.NgayLap >= startDate && hd.NgayLap <= endDate)
+                            .ToList();
+            }
+
+
+            // Truyền số lượng và danh sách hóa đơn vào View
             ViewBag.SL = hoaDons.Count;
             return View(hoaDons);
         }
+
         [HttpPost]
         public ActionResult ShowHD(string ma)
         {

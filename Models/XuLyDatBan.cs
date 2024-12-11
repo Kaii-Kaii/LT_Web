@@ -17,17 +17,18 @@ namespace QL_NhaHang_ADO.Models
             SqlConnection con = new SqlConnection(connectionString);
             // Truy vấn SQL để lấy và giải mã TenDangNhap bằng hàm decryptCaesarCipher
             string sql = @"
-                        SELECT 
-                    MAPHIEU,                         
-                    MAKH,
-                    NGAYDAT,
-                    TENKH,
-                    SOLUONG,
-                    EMAIL,
-                    SDT,
-                    GIODAT
-                FROM PhieuDatBan
-                WHERE CAST(NGAYDAT AS DATE) = CAST(GETDATE() AS DATE)";
+    SELECT 
+        MAPHIEU,                         
+        MAKH,
+        NGAYDAT,
+        TENKH,
+        SOLUONG,
+        EMAIL,
+        SDT,
+        GIODAT
+    FROM PhieuDatBan
+    WHERE CAST(NGAYDAT AS DATE) BETWEEN CAST(GETDATE() AS DATE) AND CAST(DATEADD(DAY, 2, GETDATE()) AS DATE)";
+
             SqlCommand cmd = new SqlCommand(sql, con);
             cmd.CommandType = CommandType.Text;
             con.Open();

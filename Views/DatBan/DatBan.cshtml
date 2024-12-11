@@ -10,7 +10,7 @@
             </div>
         </div>
 
-        @using (Html.BeginForm("DatBan", "DatBan", FormMethod.Post, new { @id = "reservation-form", @class = "form", @autocomplete = "off"  }))
+        @using (Html.BeginForm("DatBan", "DatBan", FormMethod.Post, new { @id = "reservation-form", @class = "form", @autocomplete = "off" }))
         {
             <div class="row">
                 <!-- Số người -->
@@ -148,6 +148,14 @@
             }).then((result) => {
                 if (!result.isConfirmed) {
                     event.preventDefault();
+                } else {
+                    // Hiển thị thông báo thành công
+                    Swal.fire({
+                        title: "Đặt bàn thành công!",
+                        text: "Thông tin của bạn đã được gửi đi.",
+                        icon: "success",
+                        confirmButtonText: "OK"
+                    });
                 }
             });
         });

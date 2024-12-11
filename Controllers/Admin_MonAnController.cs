@@ -15,10 +15,15 @@ namespace QL_NhaHang_ADO.Controllers
             return View();
         }
 
-        public ActionResult DanhSachMonAn()
+        public ActionResult DanhSachMonAn(string TenMonCanTim = null)
         {
             XuLyThongTinMonAn objMA = new XuLyThongTinMonAn();
             List<MonAn> listMA = objMA.LayThongTinMonAn();
+            if (!String.IsNullOrEmpty(TenMonCanTim))
+            {
+                listMA = listMA.Where(s => s.TenMon.ToLower().Contains(TenMonCanTim.ToLower())).ToList();
+
+            }
             return View(listMA);
         }
 
